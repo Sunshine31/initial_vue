@@ -1,25 +1,26 @@
 <template>
   <div class="root">
-    <label>
-      Введите email:
-      <input type="email" 
-      :value="email"
-      @input="emailInput($event.target.value)"
-      />
-      
-    </label>
-    <label>
-      Введите пароль:
-      <input type="password" 
-      :value="password"
-      @input="passwordInput($event.target.value)"
-      />
-    </label>
-    <br>
-    <br>
-    email: {{ email }}
-    <br>
-    password: {{ password }}
+    <p>
+      Выберете кол-во продуктов:
+    </p>
+    <button
+      type="button"
+      @click="decreaseCount"
+    >
+      -
+    </button>
+    <input 
+      type="number"
+      :value="count"
+      :min="minCount"
+      :max="maxCount"
+    >
+    <button
+      type="button"
+      @click="increaseCount"
+    >
+      +
+    </button>
   </div>
 </template>
 
@@ -28,17 +29,22 @@ export default {
   name: "MyComponent",
   data() {
     return {
-      email: 'example@mail.ru',
-      password: '12345678'
+      count: 1,
+      maxCount: 10,
+      minCount: 1
     };
   },
   methods: {
-      emailInput(value){
-        this.email = value  
-      },
-      passwordInput(value){
-        this.password = value  
+    increaseCount() {
+      if (this.count < this.maxCount) {
+        this.count++
       }
+    },
+    decreaseCount() {
+      if (this.count > this.minCount) {
+        this.count --
+      }
+    }
   }
 };
 </script>
