@@ -17,9 +17,9 @@
     <ul>
       <li v-for="(user, index) in users" :key="index">{{ `${index + 1}. ${getFullName(user)}` }}</li>
     </ul>
-    <button type="button" @click="currentPage--">Пред.</button>
+    <button type="button" :disabled="currentPage == 1" @click="currentPage--">Пред.</button>
     <button type="button" v-for="page in pages" :key="page" @click="currentPage = page">{{ page }}</button>
-    <button type="button" @click="currentPage++">След.</button>
+    <button type="button" :disabled="currentPage == pages" @click="currentPage++">След.</button>
     <p>Страница {{ currentPage }} из {{ pages }}</p>
   </div>
 </template>

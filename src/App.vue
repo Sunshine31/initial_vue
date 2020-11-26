@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-   <user-card/>
+    <photo-redactor/>
   </div>
 </template>
 
 <script>
-import UserCard from './components/userCard.vue'
+import PhotoRedactor from './components/PhotoRedactor.vue'
+
 
 
 export default {
   name: 'App',
   components: {
-    UserCard
+    PhotoRedactor
+   
   }
 }
 </script>
